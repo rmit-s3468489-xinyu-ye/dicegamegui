@@ -1,8 +1,3 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
 package controller;
 
 import java.util.List;
@@ -18,6 +13,7 @@ import model.interfaces.GameEngineCallback;
 import model.interfaces.Player;
 import view.GameEngineCallbackGUI;
 import view.GameEngineCallbackImpl;
+import view.MainFrame;
 
 /**
  *
@@ -27,7 +23,7 @@ public class GameEngineCallbackController
 {
     private GameEngine ge;
     
-    public GameEngineCallbackController(GameEngine ge,GameEngineCallbackGUI gecg)
+    public GameEngineCallbackController(GameEngine ge, MainFrame mf)
     {
         this.ge = ge;
     }

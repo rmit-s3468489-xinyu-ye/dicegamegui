@@ -74,7 +74,7 @@ public class SimplePlayer implements Player,Cloneable
      * Else, return false
      */
     @Override
-    public boolean placeBet(int bet)
+    public boolean placeBet(int bet) 
     {
         /**
          * In this assignment, due to the constraint to
@@ -85,14 +85,14 @@ public class SimplePlayer implements Player,Cloneable
          * want to place a bet but just want to experience how the game
          * works
          */
-        if (bet > 0 && points >= bet)
-        {
-            this.bet = bet;
-            points -= bet;
-            return true;
-        }
-        else
-            return false;
+    		if (bet > 0 && points >= bet)
+    		{
+    			this.bet = bet;
+    			points -= bet;
+    			return true;
+    		}
+
+    		return false;    
     }
     
     @Override

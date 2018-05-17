@@ -58,7 +58,6 @@ public class GameEngineImpl implements GameEngine
     @Override
     public void rollPlayer(Player player, int initialDelay, int finalDelay, int delayIncrement)
     {
-        
         int initDel = initialDelay;
         
         if(!players.contains(player))
@@ -169,11 +168,10 @@ public class GameEngineImpl implements GameEngine
             ((SimplePlayer)player).resetRollResult();
         }
         
-        /**
-         * Invoking the houseResult method in GameEngineCallBackImpl
-         * for the House, for displaying the House's final
-         * rolling result
-         */
+
+        //Invoking the houseResult method in GameEngineCallBackImpl
+        //for the House, for displaying the House's final
+        //rolling result
         
         for(GameEngineCallback gecb: gameEngineCallbacks)
         {
@@ -182,7 +180,6 @@ public class GameEngineImpl implements GameEngine
         
     }
   
-    //Add a player into the Player List
     @Override
     public void addPlayer(Player newPlayer)
     {

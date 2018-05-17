@@ -23,7 +23,8 @@ public class AddPlayerController
 	
 	public AddPlayerController(GameEngine ge, AddPlayer ap) 
 	{
-		ap.jBAdd.addActionListener(new java.awt.event.ActionListener() {
+		ap.jBAdd.addActionListener(new java.awt.event.ActionListener()
+		{
             public void actionPerformed(java.awt.event.ActionEvent evt) 
             {
 	            	String message = "";

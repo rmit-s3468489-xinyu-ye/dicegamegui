@@ -7,6 +7,7 @@ import model.SimplePlayer;
 import model.interfaces.GameEngine;
 import model.interfaces.Player;
 import view.GameEngineCallbackGUI;
+import view.MainFrame;
 
 /**
 *
@@ -14,40 +15,41 @@ import view.GameEngineCallbackGUI;
 */
 public class RollHouseController 
 {
-	public RollHouseController(GameEngine ge,GameEngineCallbackGUI gecg) 
+	public RollHouseController(GameEngine ge, MainFrame mf) 
 	{
-		gecg.jBRollHouse.addActionListener(new java.awt.event.ActionListener() 
+		mf.jBRollHouse.addActionListener(new java.awt.event.ActionListener() 
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt) 
             {
-				 List<Player> players=(List)ge.getAllPlayers();
-			        for(Player p:players)
-			        {   
-			            if(p.getRollResult() == null)
-			            {     
-			                System.out.println("Please roll all of the players first !");
-			                return;
-			            }
-			        }
+				 List<Player> players = (List) ge.getAllPlayers();
 			        
-			        new Thread()
-			        {
-			            public void run()
-			            {
-			                ge.rollHouse(1, 20, 1);
-			                
-			                List<Player> players=((GameEngineImpl)ge).getPlayers();
-			                
-			                for(Player p:players)
-			                {
-			                    ((SimplePlayer)p).resetBet();
-			                    ((SimplePlayer)p).resetRollResult();
-			                }
-			            }
-			            
-			        }.start();
+				 for(Player p:players)
+				 {   
+					 if(p.getRollResult() == null)
+					 {     
+						 System.out.println("Please roll all of the players first !");
+						 return;
+					 }
+				 }
 			        
-                 gecg.doRefTable();
+				 new Thread()
+				 {
+					 public void run()
+					 {
+						 ge.rollHouse(1, 20, 1);
+
+						 List<Player> players = ((GameEngineImpl)ge).getPlayers();
+
+						 for(Player p:players)
+						 {
+							 ((SimplePlayer)p).resetBet();
+							 ((SimplePlayer)p).resetRollResult();
+						 }
+					 }
+
+				 }.start();
+			        
+//                 gecg.doRefTable();
             }
         });
 	}
